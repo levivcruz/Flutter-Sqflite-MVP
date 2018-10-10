@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'SqfLite App Login',
-      theme: new ThemeData(primarySwatch: Colors.teal),
+      theme: new ThemeData(primarySwatch: Colors.blue),
       routes: routes,
     );
   }

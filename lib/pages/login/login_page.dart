@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_sqlite/data/database_helper.dart';
 import 'package:flutter_login_sqlite/models/user.dart';
 import 'package:flutter_login_sqlite/pages/login/login_presenter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -45,8 +46,9 @@ class _LoginPageState extends State<LoginPage> implements LoginPageContract {
     _ctx = context;
     var loginBtn = new RaisedButton(
       onPressed: _submit,
-      child: new Text('Login'),
+      child: new Icon(FontAwesomeIcons.signInAlt),
       color: Colors.green,
+      textColor: Colors.white,
     );
     var loginForm = new Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,6 +66,7 @@ class _LoginPageState extends State<LoginPage> implements LoginPageContract {
                 child: new TextFormField(
                   onSaved: (val) => _username = val,
                   decoration: new InputDecoration(labelText: 'Username'),
+                  keyboardType: TextInputType.text,
                 ),
               ),
               new Padding(
@@ -71,6 +74,8 @@ class _LoginPageState extends State<LoginPage> implements LoginPageContract {
                 child: new TextFormField(
                   onSaved: (val) => _password = val,
                   decoration: new InputDecoration(labelText: 'Password'),
+                  obscureText: true,
+                  keyboardType: TextInputType.text,
                 ),
               ),
             ],
@@ -81,7 +86,9 @@ class _LoginPageState extends State<LoginPage> implements LoginPageContract {
     );
 
     return new Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        centerTitle: true,
         title: new Text('Login'),
       ),
       key: scaffoldKey,
